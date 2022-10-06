@@ -1,16 +1,16 @@
 <p align="center">
-   <img src="https://github.com/Komodo123/battle.net/blob/master/assets/battle.net.png?raw=true" width="200" />
+   <img src="https://github.com/Komodo123/gadgetzan/blob/master/assets/battle.net.png?raw=true" width="200" />
 
    <h1 align="center" style="border-bottom: none">Gadgetzan: Battle.net API SDK</h1>
 </p>
 
 <p align="center">
-   <img src="https://img.shields.io/github/license/Komodo123/battle.net" />
-   <img src="https://img.shields.io/github/package-json/v/Komodo123/battle.net" />
-   <img src="https://img.shields.io/github/languages/code-size/Komodo123/battle.net" />
-   <img src="https://img.shields.io/github/issues/Komodo123/battle.net" />
-   <img src="https://img.shields.io/github/issues-pr/Komodo123/battle.net" />
-   <img src="https://img.shields.io/github/commit-activity/m/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/license/Komodo123/gadgetzan" />
+   <img src="https://img.shields.io/github/package-json/v/Komodo123/gadgetzan" />
+   <img src="https://img.shields.io/github/languages/code-size/Komodo123/gadgetzan" />
+   <img src="https://img.shields.io/github/issues/Komodo123/gadgetzan" />
+   <img src="https://img.shields.io/github/issues-pr/Komodo123/gadgetzan" />
+   <img src="https://img.shields.io/github/commit-activity/m/Komodo123/gadgetzan" />
 </p>
 
 ## Table of Contents
