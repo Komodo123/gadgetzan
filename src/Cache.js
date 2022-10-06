@@ -1,6 +1,6 @@
 let fs = require ('fs');
 let path = require ('path');
-let debug = require ('debug') ('battle.net:cache');
+let debug = require ('debug') ('gadgetzan:cache');
 
 class Cache
 {

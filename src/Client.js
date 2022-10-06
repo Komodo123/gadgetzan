@@ -1,6 +1,6 @@
 let path = require ('path');
 let axios = require ('axios');
-let debug = require ('debug') ('battle.net:client');
+let debug = require ('debug') ('gadgetzan:client');
 let { default: PQueue } = require ('p-queue');
 let Cache = require ('./Cache');
 let data = require ('./data');
@@ -20,7 +20,8 @@ class Client
       locale: options.locale ?? 'en_US',
       retries: options.retries ?? 3,
       timeout: options.timeout ?? 5000,
-      concurrency: options.concurrency ?? 5
+      concurrency: options.concurrency ?? 5,
+      throttle: options.throttle ?? 100
     };
 
     this.options.cache = {

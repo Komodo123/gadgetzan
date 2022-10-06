@@ -148,7 +148,7 @@ class Api extends Base
   async getGuildCrestBorderMedia (borderId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/guild-crest/border/${encodeURIComponent (borderId)}`,
+      path: `/data/wow/media/guild-crest/border/${encodeURIComponent (borderId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -415,6 +415,18 @@ class Api extends Base
       params: {
         namespace: this._getNamespace ('dynamic'),
         ... options?.params
+      }
+    });
+  }
+  
+  async getWoWTokenIndex (options) {
+    return this.get ({
+      ... options,
+      path: `/data/wow/token/index`,
+      params: {
+        namespace: this._getNamespace ('dynamic'),
+        ... options?.params,
+        region: 'cn'
       }
     });
   }

@@ -73,6 +73,7 @@ You can optionally pass a third argument with the following configurable options
   retries: 3,
   timeout: 5000,
   concurrency: 5,
+  throttle: 100,
 
   cache: {
     enabled: true,

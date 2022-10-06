@@ -1054,17 +1054,6 @@ class Api extends Base
       }
     });
   }
-
-  async getWoWTokenIndex (options) {
-    return this.get ({
-      ... options,
-      path: `/data/wow/token/index`,
-      params: {
-        namespace: this._getNamespace ('dynamic'),
-        ... options?.params
-      }
-    });
-  }
 }
 
 module.exports = Api;

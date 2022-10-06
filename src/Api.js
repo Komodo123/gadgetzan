@@ -1,7 +1,7 @@
 let url = require ('url');
 let querystring = require ('querystring');
 let pThrottle = require ('p-throttle');
-let debug = require ('debug') ('battle.net:api');
+let debug = require ('debug') ('gadgetzan:api');
 let axios = require ('axios');
 let sha1 = require ('sha1');
 let retry = require ('async-retry');
@@ -13,7 +13,7 @@ class Api
     this.client = client;
 
     this.throttle = pThrottle ({
-      limit: 100,
+      limit: this.client.options.throttle,
       interval: 1000,
       strict: true
     });
