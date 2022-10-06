@@ -20,9 +20,8 @@ async function main () {
 
   console.log (icon);
 
-  // let realms = await client.wow.classic.getConnectedRealms ();
-  // let realm = realms.find (realm => realm.is ('Grobbulus'));
-  // let auctions = await realm.getAuctions ();
+  let realm = await client.wow.classic.getConnectedRealm ('Grobbulus');
+  let auctions = await realm.getAuctions ();
 
   // console.log (auctions);
 

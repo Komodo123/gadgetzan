@@ -39,8 +39,8 @@ class Item extends Model
     this.namespace = qs.namespace;
   }
 
-  async getIcon () {
-    let media = await this.service.api.getItemMedia (this.id);
+  async getIcon (options) {
+    let media = await this.service.api.getItemMedia (this.id, options);
     return media.assets.find (asset => asset.key === 'icon').value;
   }
 }

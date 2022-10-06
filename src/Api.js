@@ -23,6 +23,10 @@ class Api
     return this.client.options.locale;
   }
 
+  getDefaultRegion () {
+    return this.client.options.region;
+  }
+
   async get ({ path, params, timeout, retries, cache }) {
     params = params ?? {};
     timeout = timeout ?? this.client.options.timeout;
@@ -91,14 +95,13 @@ class Api
 
     do {
       response = await paginatedRequest.call (this, {
-        cache: false,
         ... options,
-        params: {
-          ... options.params,
-          id: `[${offset},]`,
-          orderBy: 'id',
-          pageSize: 100,
-        }
+        id: `[${offset},]`,
+        orderBy: 'id',
+        pageSize: 100
+      }, {
+        cache: false,
+        ... options
       });
 
       if (response.pageSize > 0) {

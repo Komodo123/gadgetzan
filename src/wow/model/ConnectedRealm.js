@@ -17,8 +17,8 @@ class ConnectedRealm extends Model
     return !!this.realms.find (realm => realm.name === name);
   }
 
-  async getAuctions () {
-    let auctionHouses = await this.service.getAuctionHousesIndex (this.id);
+  async getAuctions (options) {
+    let auctionHouses = await this.service.getAuctionHouses (this.id, options);
     let auctions = {};
 
     for (let auctionHouse of auctionHouses) {

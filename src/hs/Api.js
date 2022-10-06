@@ -4,9 +4,10 @@ class Api extends Base
 {
   async searchCards ({ attack, classSlug, collectible, gameMode, health, keyword, manaCost, minionType, order, page, pageSize, rarity, set, sort, spellSchool, textFilter, type }, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cards`,
       params: {
-        ... options,
+        ... options?.params,
         attack,
         class: classSlug,
         collectible,
@@ -29,9 +30,10 @@ class Api extends Base
 
   async searchBattlegroundCards ({ attack, gameMode, health, keyword, minionType, order, page, pageSize, sort, textFilter, tier }, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cards`,
       params: {
-        ... options,
+        ... options?.params,
         attack,
         gameMode,
         health,
@@ -48,9 +50,10 @@ class Api extends Base
 
   async searchMercenaryCards ({ attack, defaultMercenary, gameMode, health, minionType, mercenaryId, mercenaryRole, order, page, pageSize, sort, textFilter }, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cards`,
       params: {
-        ... options,
+        ... options?.params,
         attack,
         defaultMercenary,
         gameMode,
@@ -68,6 +71,7 @@ class Api extends Base
 
   async getCard (idOrSlug, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cards/${encodeURIComponent (idOrSlug)}`,
       params
     });
@@ -75,9 +79,10 @@ class Api extends Base
 
   async searchCardbacks ({ cardBackCategory, order, page, pageSize, sort, textFilter }, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cardbacks`,
       params: {
-        ... options,
+        ... options?.params,
         cardBackCategory,
         sort: this._getSortString (sort, order),
         page,
@@ -89,6 +94,7 @@ class Api extends Base
 
   async getCardback (idOrSlug, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/cardbacks/${encodeURIComponent (idOrSlug)}`,
       params
     });
@@ -96,9 +102,10 @@ class Api extends Base
 
   async getDeckByCode ({ code, ids, hero }, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/deck`,
       params: {
-        ... options,
+        ... options?.params,
         code,
         ids,
         hero
@@ -108,15 +115,17 @@ class Api extends Base
 
   async getAllMetadata (options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/metadata`,
-      params: options
+      params: options?.params
     });
   }
 
   async getSpecificMetadata (type, options) {
     return this.get ({
+      ... options,
       path: `/hearthstone/metadata/${encodeURIComponent (type)}`,
-      params: options
+      params: options?.params
     });
   }
 

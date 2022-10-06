@@ -12,8 +12,8 @@ class AuctionHouse extends Model
     this.connectedRealmId = connectedRealmId;
   }
 
-  async getAuctions () {
-    let response = await this.service.api.getAuctions (this.connectedRealmId, this.id);
+  async getAuctions (options) {
+    let response = await this.service.api.getAuctions (this.connectedRealmId, this.id, options);
     return response.auctions;
   }
 }

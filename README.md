@@ -13,6 +13,7 @@
   - [High-Level](#high-level)
     - [World of Warcraft](#high-level-world-of-warcraft)
     - [World of Warcraft (Classic)](#high-level-world-of-warcraft-classic)
+    - [World of Warcraft (Models)](#high-level-world-of-warcraft-models)
   - [Low-Level](#low-level)
     - [Diablo III](#low-level-diablo-iii)
     - [Hearthstone](#low-level-hearthstone)
@@ -104,7 +105,7 @@ The last parameter in every method is an optional options object which allows cu
 For example, if the client's default region is `us` but you need to request details for a region in `eu`, you can:
 
 ```
-client.wow.classic.getRegions ({ params: { region: 'eu' }});`
+client.wow.classic.getConnectedRealms ({ params: { region: 'eu' }});`
 ```
 
 Some methods such as `client.wow.getItems` override user-defined parameters if specified such as `id`, `orderBy`, and `pageSize` to ensure working and efficient pagination requests to Blizzard. Overrides are used sparingly and only when necessary to decrease the chance of user-defined inputs causing an error.
@@ -114,8 +115,7 @@ Some methods such as `client.wow.getItems` override user-defined parameters if s
 #### World of Warcraft (Classic) - Get all horde auctions on Grobbulus:
 
 ```
-let realms = await client.wow.classic.getConnectedRealms ();
-let realm = realms.find (realm => realm.is ('Grobbulus'));
+let realm = await client.wow.classic.getConnectedRealm ('Grobbulus');
 let auctions = await realm.getAuctions ();
 
 console.log (auctions.horde);
@@ -143,7 +143,7 @@ console.log (icon);
 #### World of Warcraft (Classic) - Loop through all available regions in Europe:
 
 ```
-let regions = await client.wow.classic.getRegions ({ params: { region: 'eu' }});
+let regions = await client.wow.classic.getRegions ('eu');
 
 console.log (regions);
 ```
@@ -166,18 +166,42 @@ console.log (region);
 
  `async getConnectedRealms (options): ConnectedRealm []`
 
+ `async getConnectedRealm (name, options): ConnectedRealm`
+
  `async getItem (name, options): Item`
 
  `async getItemById (itemId, options): Item`
 
  `async* getItems (name, options): AsyncGenerator<Item>`
 
- `async getRegions (options): Region []`
+ `async getRegions (region, options): Region []`
 
 #### World of Warcraft (Classic) <a name="high-level-world-of-warcraft-classic"></a>
 *client.wow.classic*
 
-`async getAuctionHousesIndex (connectedRealmId, options)`
+`async getAuctionHouses (connectedRealmId, options)`
+
+#### World of Warcraft (Models) <a name="high-level-world-of-warcraft-models"></a>
+
+*AuctionHouse*
+
+`async getAuctions (options)`
+
+*ConnectedRealm*
+
+`is (name)`
+
+`async getAuctions (options)`
+
+*Item*
+
+`async getIcon (options)`
+
+*Price*
+
+*Realm*
+
+*Region*
 
 ### Low-Level
 

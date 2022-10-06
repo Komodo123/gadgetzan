@@ -10,7 +10,7 @@ class Service extends Base
     this.data = data;
   }
 
-  async getAuctionHousesIndex (connectedRealmId) {
+  async getAuctionHouses (connectedRealmId, options) {
     let auctionHouses = await this.api.getAuctionHouseIndex (connectedRealmId, options);
     let auctionHousesIndex = [];
 
