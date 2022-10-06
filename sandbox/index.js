@@ -1,6 +1,6 @@
 require ('dotenv/config');
 
-let { Client } = require ('battle.net');
+let { Client } = require ('gadgetzan');
 
 let client = new Client (
   process.env.BATTLE_NET_CLIENT_ID,

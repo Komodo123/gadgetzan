@@ -1,6 +1,17 @@
+<p align="center">
+   <img src="https://github.com/Komodo123/battle.net/blob/master/assets/battle.net.png?raw=true" width="200" />
 
+   <h1 align="center" style="border-bottom: none">Gadgetzan: Battle.net API SDK</h1>
+</p>
 
-# Battle.net API SDK
+<p align="center">
+   <img src="https://img.shields.io/github/license/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/package-json/v/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/languages/code-size/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/issues/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/issues-pr/Komodo123/battle.net" />
+   <img src="https://img.shields.io/github/commit-activity/m/Komodo123/battle.net" />
+</p>
 
 ## Table of Contents
 
@@ -38,14 +49,14 @@
 
 ### Installation
 
-`npm install --save battle.net`
+`npm install --save gadgetzan`
 
 ### Creating a Client
 
 To create a client, you need to register an application with Blizzard: https://develop.battle.net/access/clients. Use the client ID and client secret found on your application details page to create the battle.net client:
 
 ```
-const { Client } = require ('battle.net');
+const { Client } = require ('gadgetzan');
 
 const client = new Client (
   process.env.BATTLE_NET_CLIENT_ID,
@@ -665,3 +676,7 @@ console.log (region);
 `async getPvPLeaderboard (pvpRegionId, pvpSeasonId, pvpBracket, options)`
 
 `async getPvPLeaderboardsIndex (pvpRegionId, pvpSeasonId, options)`
+
+## Copyright
+
+©1996 - 2022 Blizzard Entertainment, Inc. All rights reserved. Battle.net, Diablo III, Hearthstone, Starcraft II, World of Warcraft, and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.

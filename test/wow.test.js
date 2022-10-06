@@ -1,4 +1,6 @@
-let { Client } = require ('battle.net');
+require ('dotenv/config');
+
+let { Client } = require ('gadgetzan');
 
 let AuctionHouse = require ('../src/wow/model/AuctionHouse');
 let ConnectedRealm = require ('../src/wow/model/ConnectedRealm');
@@ -17,7 +19,7 @@ describe ('World of Warcraft', () => {
 
       {
         region: process.env.BATTLE_NET_REGION,
-        // cache: false
+        cache: false
       }
     );
   });
