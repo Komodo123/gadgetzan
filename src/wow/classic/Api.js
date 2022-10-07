@@ -6,7 +6,7 @@ class Api extends Base
     return `${type}-classic`
   }
 
-  async getAuctionHouseIndex (connectedRealmId, options) {
+  async getAuctionHousesIndex (connectedRealmId, options) {
     return this.get ({
       ... options,
       path: `/data/wow/connected-realm/${encodeURIComponent (connectedRealmId)}/auctions/index`,
@@ -39,7 +39,7 @@ class Api extends Base
       }
     });
   }
-
+  
   async getPvPRegionalSeasonsIndex (pvpRegionId, options) {
     return this.get ({
       ... options,
@@ -84,10 +84,10 @@ class Api extends Base
     });
   }
 
-  async getPvPLeaderboardsIndex (pvpRegionId, pvpSeasonId, options) {
+  async getPvPRewardsIndex (pvpRegionId, pvpSeasonId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/pvp-region/${encodeURIComponent (pvpRegionId)}/pvp-season/${encodeURIComponent (pvpSeasonId)}/pvp-reward/index`,
+      path: `/data/wow/pvp-region/${encodeURIComponent (pvpSeasonId)}`,
       params: {
         namespace: this._getNamespace ('dynamic'),
         ... options?.params

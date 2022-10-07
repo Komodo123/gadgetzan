@@ -231,6 +231,14 @@ describe ('World of Warcraft', () => {
     test (`client.wow.${version}.api.getWoWTokenIndex`, async () => {
       expect (await client.wow [version].api.getWoWTokenIndex ()).toHaveProperty ('price');
     });
+
+    test (`client.wow.${version}.api.getPvPSeasonsIndex`, async () => {
+      expect (await client.wow [version].api.getPvPSeasonsIndex ()).toHaveProperty ('seasons');
+    });
+
+    test (`client.wow.${version}.api.getPvPSeason`, async () => {
+      expect (await client.wow [version].api.getPvPSeason (version === 'classic' ? 4 : 27)).toHaveProperty ('id');
+    });
   }
 
   describe ('High-Level API', () => {
@@ -246,14 +254,59 @@ describe ('World of Warcraft', () => {
   describe ('Low-Level API', () => {
     describe ('Retail', () => {
       commonLowLevelAPIs ('retail');
+
+      test ('client.wow.retail.api.getPvPLeaderboardsIndex', async () => {
+        expect (await client.wow.retail.api.getPvPLeaderboardsIndex (27)).toHaveProperty ('leaderboards');
+      });
+
+      test ('client.wow.retail.api.getPvPLeaderboard', async () => {
+        expect (await client.wow.retail.api.getPvPLeaderboard (27, '3v3')).toHaveProperty ('entries');
+      });
+
+      test ('client.wow.retail.api.getPvPLeaderboard', async () => {
+        expect (await client.wow.retail.api.getPvPRewardsIndex (27)).toHaveProperty ('rewards');
+      });
     });
 
     describe ('Retail Profile', () => {
-
+      
     });
 
     describe ('Classic', () => {  
       commonLowLevelAPIs ('classic');
+
+      test ('client.wow.classic.api.getAuctionHouseIndex', async () => {
+        expect (await client.wow.classic.api.getAuctionHousesIndex (4372)).toHaveProperty ('auctions');
+      });
+
+      test ('client.wow.classic.api.getAuctions', async () => {
+        expect (await client.wow.classic.api.getAuctions (4372, 2)).toHaveProperty ('auctions');
+      }, 60 * 10 * 1000);
+
+      test ('client.wow.classic.api.getPvPRegionsIndex', async () => {
+        expect (await client.wow.classic.api.getPvPRegionsIndex ()).toHaveProperty ('pvp_regions');
+      });
+
+      test ('client.wow.classic.api.getPvPRegionalSeasonsIndex', async () => {
+        expect (await client.wow.classic.api.getPvPRegionalSeasonsIndex (1)).toHaveProperty ('seasons');
+      });
+
+      // Note: These endpoints are not working on develop.battle.net "Try it out" either.
+      // test ('client.wow.classic.api.getPvPRegionalSeason', async () => {
+      //   expect (await client.wow.classic.api.getPvPRegionalSeason (5, 5)).toHaveProperty ('id');
+      // });
+
+      // test ('client.wow.classic.api.getPvPLeaderboardsIndex', async () => {
+      //   expect (await client.wow.classic.api.getPvPLeaderboardsIndex (5, 5)).toHaveProperty ('leaderboards');
+      // });
+
+      // test ('client.wow.classic.api.getPvPLeaderboard', async () => {
+      //   expect (await client.wow.classic.api.getPvPLeaderboard (5, 5, '3v3')).toHaveProperty ('id');
+      // });
+
+      // test ('client.wow.classic.api.getPvPRewardsIndex', async () => {
+      //   expect (await client.wow.classic.api.getPvPRewardsIndex (1, 1)).toHaveProperty ('pvp_rewards');
+      // });
     });
   });
 });

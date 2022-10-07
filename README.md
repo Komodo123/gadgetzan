@@ -662,7 +662,7 @@ console.log (region);
 #### World of Warcraft (Classic) <a name="low-level-world-of-warcraft-classic"></a>
 *client.wow.classic.api*
 
-`async getAuctionHouseIndex (connectedRealmId, options)`
+`async getAuctionHousesIndex (connectedRealmId, options)`
 
 `async getAuctions (connectedRealmId, auctionHouseId, options)`
 
@@ -676,7 +676,7 @@ console.log (region);
 
 `async getPvPLeaderboard (pvpRegionId, pvpSeasonId, pvpBracket, options)`
 
-`async getPvPLeaderboardsIndex (pvpRegionId, pvpSeasonId, options)`
+`async getPvPRewardsIndex (pvpRegionId, pvpSeasonId, options)`
 
 ## Copyright
 

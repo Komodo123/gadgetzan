@@ -11,7 +11,7 @@ class Service extends Base
   }
 
   async getAuctionHouses (connectedRealmId, options) {
-    let auctionHouses = await this.api.getAuctionHouseIndex (connectedRealmId, options);
+    let auctionHouses = await this.api.getAuctionHousesIndex (connectedRealmId, options);
     let auctionHousesIndex = [];
 
     for (let auctionHouse of auctionHouses.auctions) {
