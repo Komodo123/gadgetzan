@@ -39,7 +39,7 @@ class Api extends Base
   async getFollower (followerSlug, options) {
     return this.get ({
       ... options,
-      path: `/d3/data/artisan/${encodeURIComponent (followerSlug)}`,
+      path: `/d3/data/follower/${encodeURIComponent (followerSlug)}`,
       params: options?.params
     });
   }
@@ -60,7 +60,7 @@ class Api extends Base
     });
   }
 
-  async getItemTypeIndex (options) {
+  async getItemTypesIndex (options) {
     return this.get ({
       ... options,
       path: `/d3/data/item-type`,
@@ -71,7 +71,7 @@ class Api extends Base
   async getItemType (itemTypeSlug, options) {
     return this.get ({
       ... options,
-      path: `/d3/data/artisan/${encodeURIComponent (itemTypeSlug)}`,
+      path: `/d3/data/item-type/${encodeURIComponent (itemTypeSlug)}`,
       params: options?.params
     });
   }
@@ -87,7 +87,7 @@ class Api extends Base
   async getApiAccount (battleTag, options) {
     return this.get ({
       ... options,
-      path: `/d3/profile/${encodeURIComponent (battleTag)}`,
+      path: `/d3/profile/${encodeURIComponent (battleTag)}/`,
       params: options?.params
     });
   }
@@ -100,7 +100,7 @@ class Api extends Base
     });
   }
 
-  async getApiDetailedHeroItems (battleTag, options) {
+  async getApiDetailedHeroItems (battleTag, heroId, options) {
     return this.get ({
       ... options,
       path: `/d3/profile/${encodeURIComponent (battleTag)}/hero/${encodeURIComponent (heroId)}/items`,
@@ -108,7 +108,7 @@ class Api extends Base
     });
   }
 
-  async getApiDetailedFollowerItems (battleTag, options) {
+  async getApiDetailedFollowerItems (battleTag, heroId, options) {
     return this.get ({
       ... options,
       path: `/d3/profile/${encodeURIComponent (battleTag)}/hero/${encodeURIComponent (heroId)}/follower-items`,
@@ -121,7 +121,7 @@ class Api extends Base
   async getSeasonIndex (options) {
     return this.get ({
       ... options,
-      path: `/data/d3/season`,
+      path: `/data/d3/season/`,
       params: options?.params
     });
   }
@@ -145,7 +145,7 @@ class Api extends Base
   async getEraIndex (options) {
     return this.get ({
       ... options,
-      path: `/data/d3/era`,
+      path: `/data/d3/era/`,
       params: options?.params
     });
   }

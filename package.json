@@ -1,6 +1,6 @@
 {
   "name": "gadgetzan",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vanilla javascript library for interacting with the Battle.net APIs. Provides high-level and low-level APIs.",
   "keywords": [
     "api",

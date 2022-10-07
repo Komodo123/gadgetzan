@@ -115,10 +115,15 @@ class Api
   }
 
   async prepareAxiosRequest ({ path, params, timeout }) {
+    let namespace;
+
     let token = await this.client.getAccessToken ();
     let region = params.region ?? this.client.options.region;
     let locale = params.locale ?? this.client.options.locale;
-    let namespace = `${params.namespace}-${region}`;
+
+    if (params.namespace) {
+      namespace = `${params.namespace}-${region}`;
+    }
 
     let parsed = url.parse (path);
     let host = url.parse (this.client.data.endpoints [region].host);

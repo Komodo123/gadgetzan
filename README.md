@@ -234,7 +234,7 @@ console.log (region);
 
 `async getApiSkill (classSlug, skillSlug, options)`
 
-`async getItemTypeIndex (options)`
+`async getItemTypesIndex (options)`
 
 `async getItemType (itemTypeSlug, options)`
 
@@ -244,9 +244,9 @@ console.log (region);
 
 `async getApiHero (battleTag, heroId, options)`
 
-`async getApiDetailedHeroItems (battleTag, options)`
+`async getApiDetailedHeroItems (battleTag, heroId, options)`
 
-`async getApiDetailedFollowerItems (battleTag, options)`
+`async getApiDetailedFollowerItems (battleTag, heroId, options)`
 
 `async getSeasonIndex (options)`
 
@@ -289,11 +289,9 @@ console.log (region);
 
 `async getProfile (regionId, realmId, profileId, options)`
 
-`async getLadderSummary (regionId, realmId, profileId, options)`
+`async getProfileLadderSummary (regionId, realmId, profileId, options)`
 
-`async getLadderSummary (regionId, realmId, profileId, ladderId, options)`
-
-`async getGrandmasterLeaderboard (regionId, options)`
+`async getProfileLadder (regionId, realmId, profileId, ladderId, options)`
 
 `async getGrandmasterLeaderboard (regionId, options)`
 
@@ -680,4 +678,4 @@ console.log (region);
 
 ## Copyright
 
-©1996 - 2022 Blizzard Entertainment, Inc. All rights reserved. Battle.net, Diablo III, Hearthstone, Starcraft II, World of Warcraft, and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.
+©1996 - 2022 Blizzard Entertainment, Inc. All rights reserved. Battle.net, Diablo III, Hearthstone, StarCraft II, World of Warcraft, and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.

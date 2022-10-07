@@ -8,7 +8,6 @@ let Item = require ('../src/wow/model/Item');
 let Region = require ('../src/wow/model/Region');
 
 describe ('World of Warcraft', () => {
-
   let client;
 
   beforeAll (() => {
