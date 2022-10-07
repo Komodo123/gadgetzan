@@ -2,69 +2,69 @@ let Base = require ('../api');
 
 class Api extends Base
 {
-  async searchCards ({ attack, classSlug, collectible, gameMode, health, keyword, manaCost, minionType, order, page, pageSize, rarity, set, sort, spellSchool, textFilter, type }, options) {
+  async searchCards (filters, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/cards`,
       params: {
         ... options?.params,
-        attack,
-        class: classSlug,
-        collectible,
-        gameMode,
-        health,
-        keyword,
-        manaCost,
-        minionType,
-        page,
-        pageSize,
-        rarity,
-        set,
-        spellSchool,
-        sort: this._getSortString (sort, order),
-        textFilter,
-        type
+        attack: filters?.attack,
+        class: filters?.classSlug,
+        collectible: filters?.collectible,
+        gameMode: filters?.gameMode,
+        health: filters?.health,
+        keyword: filters?.keyword,
+        manaCost: filters?.manaCost,
+        minionType: filters?.minionType,
+        page: filters?.page,
+        pageSize: filters?.pageSize,
+        rarity: filters?.rarity,
+        set: filters?.set,
+        spellSchool: filters?.spellSchool,
+        sort: this._getSortString (filters?.sort, filters?.order),
+        textFilter: filters?.textFilter,
+        type: filters?.type
       }
     });
   }
 
-  async searchBattlegroundCards ({ attack, gameMode, health, keyword, minionType, order, page, pageSize, sort, textFilter, tier }, options) {
+  async searchBattlegroundCards (filters, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/cards`,
       params: {
         ... options?.params,
-        attack,
-        gameMode,
-        health,
-        keyword,
-        minionType,
-        page,
-        pageSize,
-        sort: this._getSortString (sort, order),
-        textFilter,
-        tier
+        attack: filters?.attack,
+        gameMode: filters?.gameMode,
+        health: filters?.health,
+        keyword: filters?.keywords,
+        minionType: filters?.minionType,
+        page: filters?.page,
+        pageSize: filters?.pageSize,
+        sort: this._getSortString (filters?.sort, filters?.order),
+        textFilter: filters?.textFilter,
+        tier: filters?.tier
       }
     });
   }
 
-  async searchMercenaryCards ({ attack, defaultMercenary, gameMode, health, minionType, mercenaryId, mercenaryRole, order, page, pageSize, sort, textFilter }, options) {
+  async searchMercenaryCards (filters, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/cards`,
       params: {
         ... options?.params,
-        attack,
-        defaultMercenary,
-        gameMode,
-        health,
-        minionType,
-        mercenaryId,
-        mercenaryRole,
-        page,
-        pageSize,
-        sort: this._getSortString (sort, order),
-        textFilter
+        attack: filters?.attack,
+        defaultMercenary: filters?.defaultMercenary,
+        gameMode: filters?.gameMode,
+        health: filters?.health,
+        minionType: filters?.minionType,
+        mercenaryId: filters?.mercenaryId,
+        mercenaryRole: filters?.mercenaryRole,
+        page: filters?.page,
+        pageSize: filters?.pageSize,
+        sort: this._getSortString (filters?.sort, filters?.order),
+        textFilter: filters?.textFilter
       }
     });
   }
@@ -72,22 +72,21 @@ class Api extends Base
   async getCard (idOrSlug, options) {
     return this.get ({
       ... options,
-      path: `/hearthstone/cards/${encodeURIComponent (idOrSlug)}`,
-      params
+      path: `/hearthstone/cards/${encodeURIComponent (idOrSlug)}`
     });
   }
 
-  async searchCardbacks ({ cardBackCategory, order, page, pageSize, sort, textFilter }, options) {
+  async searchCardbacks (filters, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/cardbacks`,
       params: {
         ... options?.params,
-        cardBackCategory,
-        sort: this._getSortString (sort, order),
-        page,
-        pageSize,
-        textFilter
+        cardBackCategory: filters?.cardBackCategory,
+        sort: this._getSortString (filters?.sort, filters?.order),
+        page: filters?.page,
+        pageSize: filters?.pageSize,
+        textFilter: filters?.textFilter
       }
     });
   }
@@ -95,12 +94,11 @@ class Api extends Base
   async getCardback (idOrSlug, options) {
     return this.get ({
       ... options,
-      path: `/hearthstone/cardbacks/${encodeURIComponent (idOrSlug)}`,
-      params
+      path: `/hearthstone/cardbacks/${encodeURIComponent (idOrSlug)}`
     });
   }
 
-  async getDeckByCode ({ code, ids, hero }, options) {
+  async getDeck ({ code, ids, hero }, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/deck`,
@@ -121,7 +119,7 @@ class Api extends Base
     });
   }
 
-  async getSpecificMetadata (type, options) {
+  async getMetadata (type, options) {
     return this.get ({
       ... options,
       path: `/hearthstone/metadata/${encodeURIComponent (type)}`,

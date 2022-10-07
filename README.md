@@ -274,11 +274,11 @@ console.log (region);
 
 `async getCardback (idOrSlug, options)`
 
-`async getDeckByCode ({ code, ids, hero }, options)`
+`async getDeck ({ code, ids, hero }, options)`
 
 `async getAllMetadata (options)`
 
-`async getSpecificMetadata (type, options)`
+`async getMetadata (type, options)`
 
 #### Starcraft II <a name="low-level-starcraft-ii"></a>
  *client.sc2.api*
