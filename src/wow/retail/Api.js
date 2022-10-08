@@ -125,7 +125,7 @@ class Api extends Base
   async getCovenantsIndex (options) {
     return this.get ({
       ... options,
-      path: `/data/wow/covenent/index`,
+      path: `/data/wow/covenant/index`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -136,7 +136,7 @@ class Api extends Base
   async getCovenant (covenantId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/covenent/${encodeURIComponent (covenantId)}`,
+      path: `/data/wow/covenant/${encodeURIComponent (covenantId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -147,7 +147,7 @@ class Api extends Base
   async getCovenantMedia (covenantId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/media/covenent/${encodeURIComponent (covenantId)}`,
+      path: `/data/wow/media/covenant/${encodeURIComponent (covenantId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -272,7 +272,7 @@ class Api extends Base
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params,
-        [ `instance.name.${params.locale || this.getDefaultLocale ()}` ]: instanceName,
+        [ `instance.name.${options?.locale ?? this.getDefaultLocale ()}` ]: instanceName,
         orderby: orderBy,
         _page: page
       }
@@ -396,7 +396,7 @@ class Api extends Base
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params,
-        [ `name.${options.locale || this.getDefaultLocale ()}` ]: name,
+        [ `name.${options?.locale ?? this.getDefaultLocale ()}` ]: name,
         orderby: orderBy,
         _page: page
       }
@@ -428,7 +428,7 @@ class Api extends Base
   async getMythicKeystoneAffixMedia (keystoneAffixId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/keystone-affix/${encodeURIComponent (keystoneAffixId)}`,
+      path: `/data/wow/media/keystone-affix/${encodeURIComponent (keystoneAffixId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -441,7 +441,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/dungeon/index`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -452,7 +452,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/dungeon/${encodeURIComponent (dungeonId)}`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -463,7 +463,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/index`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -474,7 +474,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/period/index`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -485,7 +485,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/period/${encodeURIComponent (periodId)}`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -496,7 +496,7 @@ class Api extends Base
       ... options,
       path: `/data/wow/mythic-keystone/season/index`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -505,9 +505,9 @@ class Api extends Base
   async getMythicKeystoneSeason (seasonId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/mythic-keystone/${encodeURIComponent (seasonId)}`,
+      path: `/data/wow/mythic-keystone/season/${encodeURIComponent (seasonId)}`,
       params: {
-        namespace: this._getNamespace ('static'),
+        namespace: this._getNamespace ('dynamic'),
         ... options?.params
       }
     });
@@ -755,6 +755,39 @@ class Api extends Base
     });
   }
 
+  async getPvPTierMedia (pvpTierId, options) {
+    return this.get ({
+      ... options,
+      path: `/data/wow/media/pvp-tier/${encodeURIComponent (pvpTierId)}`,
+      params: {
+        namespace: this._getNamespace ('static'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getPvPTiersIndex (options) {
+    return this.get ({
+      ... options,
+      path: `/data/wow/pvp-tier/index`,
+      params: {
+        namespace: this._getNamespace ('static'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getPvPTier (pvpTierId, options) {
+    return this.get ({
+      ... options,
+      path: `/data/wow/pvp-tier/${encodeURIComponent (pvpTierId)}`,
+      params: {
+        namespace: this._getNamespace ('static'),
+        ... options?.params
+      }
+    });
+  }
+
   async getQuestsIndex (options) {
     return this.get ({
       ... options,
@@ -813,7 +846,7 @@ class Api extends Base
   async getQuestArea (questAreaId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/quest/${encodeURIComponent (questAreaId)}`,
+      path: `/data/wow/quest/area/${encodeURIComponent (questAreaId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -857,7 +890,7 @@ class Api extends Base
   async getReputationFaction (reputationFactionId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/realm/${encodeURIComponent (reputationFactionId)}`,
+      path: `/data/wow/reputation-faction/${encodeURIComponent (reputationFactionId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -916,7 +949,7 @@ class Api extends Base
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params,
-        [ `name.${options.locale || this.getDefaultLocale ()}` ]: name,
+        [ `name.${options?.locale ?? this.getDefaultLocale ()}` ]: name,
         orderby: orderBy,
         _page: page
       }
@@ -970,7 +1003,7 @@ class Api extends Base
   async getPvPTalent (pvpTalentId, options) {
     return this.get ({
       ... options,
-      path: `/data/wow/talent/${encodeURIComponent (pvpTalentId)}`,
+      path: `/data/wow/pvp-talent/${encodeURIComponent (pvpTalentId)}`,
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
@@ -989,7 +1022,7 @@ class Api extends Base
     });
   }
 
-  async getTalentTree (techTalentTreeId, options) {
+  async getTechTalentTree (techTalentTreeId, options) {
     return this.get ({
       ... options,
       path: `/data/wow/tech-talent-tree/${encodeURIComponent (techTalentTreeId)}`,

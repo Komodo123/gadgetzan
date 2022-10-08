@@ -254,6 +254,270 @@ describe ('World of Warcraft', () => {
     describe ('Retail', () => {
       commonLowLevelAPIs ('retail');
 
+      test ('client.wow.retail.api.getAchievementCategoriesIndex', async () => {
+        expect (await client.wow.retail.api.getAchievementCategoriesIndex ()).toHaveProperty ('categories');
+      });
+
+      test ('client.wow.retail.api.getAchievementCategory', async () => {
+        expect (await client.wow.retail.api.getAchievementCategory (81)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getAchivementsIndex', async () => {
+        expect (await client.wow.retail.api.getAchievementsIndex ()).toHaveProperty ('achievements');
+      });
+
+      test ('client.wow.retail.api.getAchievement', async () => {
+        expect (await client.wow.retail.api.getAchievement (6)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getAchievementMedia', async () => {
+        expect (await client.wow.retail.api.getAchievementMedia (6)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getAuctions', async () => {
+        expect (await client.wow.retail.api.getAuctions (121)).toHaveProperty ('auctions');
+      });
+
+      test ('client.wow.retail.api.getAzeriteEssencesIndex', async () => {
+        expect (await client.wow.retail.api.getAzeriteEssencesIndex (1146)).toHaveProperty ('azerite_essences');
+      });
+
+      test ('client.wow.retail.api.getAzeriteEssence', async () => {
+        expect (await client.wow.retail.api.getAzeriteEssence (2)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.searchAzeriteEssences', async () => {
+        expect (await client.wow.retail.api.searchAzeriteEssences ({ allowedSpecializations: 65 })).toHaveProperty ('results');
+      });
+
+      test ('client.wow.retail.api.getAzeriteEssenceMedia', async () => {
+        expect (await client.wow.retail.api.getAzeriteEssenceMedia (2)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getCovenantsIndex', async () => {
+        expect (await client.wow.retail.api.getCovenantsIndex ()).toHaveProperty ('covenants');
+      });
+
+      test ('client.wow.retail.api.getCovenant', async () => {
+        expect (await client.wow.retail.api.getCovenant (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getCovenantMedia', async () => {
+        expect (await client.wow.retail.api.getCovenantMedia (1)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getSoulbindsIndex', async () => {
+        expect (await client.wow.retail.api.getSoulbindsIndex ()).toHaveProperty ('soulbinds');
+      });
+
+      test ('client.wow.retail.api.getSoulbind', async () => {
+        expect (await client.wow.retail.api.getSoulbind (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getConduitsIndex', async () => {
+        expect (await client.wow.retail.api.getConduitsIndex ()).toHaveProperty ('conduits');
+      });
+
+      test ('client.wow.retail.api.getConduit', async () => {
+        expect (await client.wow.retail.api.getConduit (19)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getItemSetsIndex', async () => {
+        expect (await client.wow.retail.api.getItemSetsIndex (1)).toHaveProperty ('item_sets');
+      });
+
+      test ('client.wow.retail.api.getItemSet', async () => {
+        expect (await client.wow.retail.api.getItemSet (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getJournalExpansionsIndex', async () => {
+        expect (await client.wow.retail.api.getJournalExpansionsIndex ()).toHaveProperty ('tiers');
+      });
+
+      test ('client.wow.retail.api.getJournalExpansion', async () => {
+        expect (await client.wow.retail.api.getJournalExpansion (68)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getJournalEncountersIndex', async () => {
+        expect (await client.wow.retail.api.getJournalEncountersIndex (1)).toHaveProperty ('encounters');
+      });
+
+      test ('client.wow.retail.api.getJournalEncounter', async () => {
+        expect (await client.wow.retail.api.getJournalEncounter (89)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.searchJournalEncounters', async () => {
+        expect (await client.wow.retail.api.searchJournalEncounters ({ instanceName: 'Deadmines' })).toHaveProperty ('results');
+      });
+
+      test ('client.wow.retail.api.getJournalInstancesIndex', async () => {
+        expect (await client.wow.retail.api.getJournalInstancesIndex ()).toHaveProperty ('instances');
+      });
+
+      test ('client.wow.retail.api.getJournalInstance', async () => {
+        expect (await client.wow.retail.api.getJournalInstance (63)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getJournalInstanceMedia', async () => {
+        expect (await client.wow.retail.api.getJournalInstanceMedia (63)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getModifiedCraftingsIndex', async () => {
+        expect (await client.wow.retail.api.getModifiedCraftingsIndex ()).toHaveProperty ('categories');
+      });
+
+      test ('client.wow.retail.api.getModifiedCraftingCategoriesIndex', async () => {
+        expect (await client.wow.retail.api.getModifiedCraftingCategoriesIndex ()).toHaveProperty ('categories');
+      });
+
+      test ('client.wow.retail.api.getModifiedCraftingCategory', async () => {
+        expect (await client.wow.retail.api.getModifiedCraftingCategory (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getModifiedCraftingReagentSlotTypeIndex', async () => {
+        expect (await client.wow.retail.api.getModifiedCraftingReagentSlotTypeIndex (63)).toHaveProperty ('slot_types');
+      });
+
+      test ('client.wow.retail.api.getModifiedCraftingReagentSlotType', async () => {
+        expect (await client.wow.retail.api.getModifiedCraftingReagentSlotType (16)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getMountsIndex', async () => {
+        expect (await client.wow.retail.api.getMountsIndex ()).toHaveProperty ('mounts');
+      });
+
+      test ('client.wow.retail.api.getMount', async () => {
+        expect (await client.wow.retail.api.getMount (6)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.searchMounts', async () => {
+        expect (await client.wow.retail.api.searchMounts ({ name: 'Turtle' })).toHaveProperty ('results');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneAffixesIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneAffixesIndex ()).toHaveProperty ('affixes');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneAffix', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneAffix (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneAffixMedia', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneAffixMedia (1)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneDungeonsIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneDungeonsIndex ()).toHaveProperty ('dungeons');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneDungeon', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneDungeon (169)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneIndex ()).toHaveProperty ('seasons');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystonePeriodsIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystonePeriodsIndex ()).toHaveProperty ('periods');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystonePeriod', async () => {
+        expect (await client.wow.retail.api.getMythicKeystonePeriod (641)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneSeasonsIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneSeasonsIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneSeason', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneSeason (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneLeaderboardsIndex', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneLeaderboardsIndex (11)).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getMythicKeystoneLeaderboard', async () => {
+        expect (await client.wow.retail.api.getMythicKeystoneLeaderboard (11, 197, 641)).toHaveProperty ('period');
+      });
+
+      test ('client.wow.retail.api.getMythicRaidLeaderboard', async () => {
+        expect (await client.wow.retail.api.getMythicRaidLeaderboard ('uldir', 'alliance')).toHaveProperty ('slug');
+      });
+
+      test ('client.wow.retail.api.getPetsIndex', async () => {
+        expect (await client.wow.retail.api.getPetsIndex ()).toHaveProperty ('pets');
+      });
+
+      test ('client.wow.retail.api.getPet', async () => {
+        expect (await client.wow.retail.api.getPet (39)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getPetMedia', async () => {
+        expect (await client.wow.retail.api.getPetMedia (39)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getPetAbilitiesIndex', async () => {
+        expect (await client.wow.retail.api.getPetAbilitiesIndex ()).toHaveProperty ('abilities');
+      });
+
+      test ('client.wow.retail.api.getPetAbility', async () => {
+        expect (await client.wow.retail.api.getPetAbility (110)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getPetAbilityMedia', async () => {
+        expect (await client.wow.retail.api.getPetAbilityMedia (110)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getPvPTalentSlots', async () => {
+        expect (await client.wow.retail.api.getPvPTalentSlots (7)).toHaveProperty ('talent_slots');
+      });
+
+      test ('client.wow.retail.api.getPlayableSpecializationsIndex', async () => {
+        expect (await client.wow.retail.api.getPlayableSpecializationsIndex ()).toHaveProperty ('character_specializations');
+      });
+
+      test ('client.wow.retail.api.getPlayableSpecialization', async () => {
+        expect (await client.wow.retail.api.getPlayableSpecialization (262)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getPlayableSpecializationMedia', async () => {
+        expect (await client.wow.retail.api.getPlayableSpecializationMedia (262)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getPowerTypesIndex', async () => {
+        expect (await client.wow.retail.api.getPowerTypesIndex ()).toHaveProperty ('power_types');
+      });
+
+      test ('client.wow.retail.api.getPowerType', async () => {
+        expect (await client.wow.retail.api.getPowerType (0)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getProfessionsIndex', async () => {
+        expect (await client.wow.retail.api.getProfessionsIndex ()).toHaveProperty ('professions');
+      });
+
+      test ('client.wow.retail.api.getProfession', async () => {
+        expect (await client.wow.retail.api.getProfession (164)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getProfessionMedia', async () => {
+        expect (await client.wow.retail.api.getProfessionMedia (164)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getProfessionSkillTier', async () => {
+        expect (await client.wow.retail.api.getProfessionSkillTier (164, 2477)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getRecipe', async () => {
+        expect (await client.wow.retail.api.getRecipe (1631)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getRecipeMedia', async () => {
+        expect (await client.wow.retail.api.getRecipeMedia (1631)).toHaveProperty ('assets');
+      });
+
       test ('client.wow.retail.api.getPvPLeaderboardsIndex', async () => {
         expect (await client.wow.retail.api.getPvPLeaderboardsIndex (27)).toHaveProperty ('leaderboards');
       });
@@ -264,6 +528,122 @@ describe ('World of Warcraft', () => {
 
       test ('client.wow.retail.api.getPvPLeaderboard', async () => {
         expect (await client.wow.retail.api.getPvPRewardsIndex (27)).toHaveProperty ('rewards');
+      });
+
+      test ('client.wow.retail.api.getPvPTierMedia', async () => {
+        expect (await client.wow.retail.api.getPvPTierMedia (1)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getPvPTiersIndex', async () => {
+        expect (await client.wow.retail.api.getPvPTiersIndex ()).toHaveProperty ('tiers');
+      });
+
+      test ('client.wow.retail.api.getPvPTier', async () => {
+        expect (await client.wow.retail.api.getPvPTier (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getQuestsIndex', async () => {
+        expect (await client.wow.retail.api.getQuestsIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getQuest', async () => {
+        expect (await client.wow.retail.api.getQuest (2)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getQuestCategoriesIndex', async () => {
+        expect (await client.wow.retail.api.getQuestCategoriesIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getQuestCategory', async () => {
+        expect (await client.wow.retail.api.getQuestCategory (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getQuestAreasIndex', async () => {
+        expect (await client.wow.retail.api.getQuestAreasIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getQuestArea', async () => {
+        expect (await client.wow.retail.api.getQuestArea (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getQuestTypesIndex', async () => {
+        expect (await client.wow.retail.api.getQuestTypesIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getQuestType', async () => {
+        expect (await client.wow.retail.api.getQuestType (1)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getReputationFactionsIndex', async () => {
+        expect (await client.wow.retail.api.getReputationFactionsIndex (1)).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getReputationFaction', async () => {
+        expect (await client.wow.retail.api.getReputationFaction (21)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getReputationTiersIndex', async () => {
+        expect (await client.wow.retail.api.getReputationTiersIndex (1)).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getReputationTiers', async () => {
+        expect (await client.wow.retail.api.getReputationTiers (2)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getSpell', async () => {
+        expect (await client.wow.retail.api.getSpell (196607)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getSpellMedia', async () => {
+        expect (await client.wow.retail.api.getSpellMedia (196607)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.searchSpells', async () => {
+        expect (await client.wow.retail.api.searchSpells ({ name: 'Holy Shield' })).toHaveProperty ('results');
+      });
+
+      test ('client.wow.retail.api.getTalentsIndex', async () => {
+        expect (await client.wow.retail.api.getTalentsIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getTalent', async () => {
+        expect (await client.wow.retail.api.getTalent (23106)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getPvPTalentsIndex', async () => {
+        expect (await client.wow.retail.api.getPvPTalentsIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getPvPTalent', async () => {
+        expect (await client.wow.retail.api.getPvPTalent (40)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getTechTalentTreeIndex', async () => {
+        expect (await client.wow.retail.api.getTechTalentTreeIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getTechTalentTree', async () => {
+        expect (await client.wow.retail.api.getTechTalentTree (275)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getTechTalentIndex', async () => {
+        expect (await client.wow.retail.api.getTechTalentIndex (3)).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getTechTalent', async () => {
+        expect (await client.wow.retail.api.getTechTalent (863)).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getTechTalentMedia', async () => {
+        expect (await client.wow.retail.api.getTechTalentMedia (863)).toHaveProperty ('assets');
+      });
+
+      test ('client.wow.retail.api.getTitlesIndex', async () => {
+        expect (await client.wow.retail.api.getTitlesIndex ()).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getTitle', async () => {
+        expect (await client.wow.retail.api.getTitle (1)).toHaveProperty ('id');
       });
     });
 
