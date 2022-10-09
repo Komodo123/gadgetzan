@@ -88,11 +88,9 @@ describe ('StarCraft II', () => {
     });
 
     describe ('Game Data', () => {
-
-    // test ('client.sc2.api.getLeagueData', async () => {
-    //   expect (await client.sc2.api.getLeagueData (37, 201, 0, 6)).toHaveProperty ('tier');
-    // });
-
+      test ('client.sc2.api.getLeagueData', async () => {
+        expect (await client.sc2.api.getLeagueData (37, 201, 0, 6)).toHaveProperty ('tier');
+      });
     });
   });
 });

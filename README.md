@@ -97,11 +97,12 @@ Low-level direct battle.net API calls are available through each game's short-na
 * **Hearthstone**: `client.hs.api`
 * **Starcraft II**: `client.sc2.api`
 * **Starcraft II (Legacy)**: `client.sc2.api.legacy`
+* **Starcraft II (Account)**: `client.sc2.api.account`
 * **World of Warcraft (Retail)**: `client.wow.retail.api`
-* **World of Warcraft (Retail Profile)**: `client.wow.retail.api.profile`
+* **World of Warcraft (Retail Profile)**: `client.wow.retail.api.account`
 * **World of Warcraft (Classic)**: `client.wow.classic.api`
 
-Note: The World of Warcraft retail profile API requires an access token generated with the [authorization code flow](https://develop.battle.net/documentation/guides/using-oauth/authorization-code-flow). This library does not currently handle this flow. To generate this access token, you can use [passport-bnet](http://www.passportjs.org/packages/passport-bnet/) or equivalent. Once the access token is generated, you can import it using the `client.setAccessToken (accessToken)` method. Note that automatic token renewal is not supported for access tokens granted using this flow, but it will allow you authorized access to the `client.wow.retail.api.profile` methods.
+Note: Some of the WoW retail and SC2 APIs requires an access token generated with the [authorization code flow](https://develop.battle.net/documentation/guides/using-oauth/authorization-code-flow). This library does not currently handle this flow. To generate this access token, you can use [passport-bnet](http://www.passportjs.org/packages/passport-bnet/) or equivalent. Once the access token is generated, you can import it using the `client.setAccessToken (accessToken)` method. Note that automatic token renewal is not supported for access tokens granted using this flow, but it will allow you authorized access to the `client.wow.retail.api.account` and `client.sc2.api.account` methods.
 
 The last parameter in every method is an optional options object which allows customizing the following parameters on a per-request basis:
 
@@ -428,6 +429,14 @@ console.log (region);
 
 `async getConduit (conduitId, options)`
 
+`async getGuild (realmSlug, characterName, options)`
+
+`async getGuildActivity (realmSlug, characterName, options)`
+
+`async getGuildAchievements (realmSlug, characterName, options)`
+
+`async getGuildRoster (realmSlug, characterName, options)`
+
 `async getItemSetsIndex (options)`
 
 `async getItemSet (itemSetId, options)`
@@ -584,19 +593,6 @@ console.log (region);
 
 `async getWoWTokenIndex (options)`
 
-#### World of Warcraft (Retail Profile) <a name="low-level-world-of-warcraft-retail-profile"></a>
-*client.wow.retail.api.profile*
-
-`async getAccountProfileSummary (options)`
-
-`async getProtectedCharacterProfileSummary (realmId, characterId, options)`
-
-`async getAccountCollectionsIndex (options)`
-
-`async getAccountMountsCollectionSummary (options)`
-
-`async getAccountPetsCollectionSummary (options)`
-
 `async getCharacterAchievementsSummary (realmSlug, characterName, options)`
 
 `async getCharacterAchievementStatistics (realmSlug, characterName, options)`
@@ -623,7 +619,7 @@ console.log (region);
 
 `async getCharacterMythicKeystoneProfileIndex (realmSlug, characterName, options)`
 
-`async getMythicKeystoneSeasonDetails (realmSlug, characterName, seasonId, options)`
+`async getCharacterMythicKeystoneSeasonDetails (realmSlug, characterName, seasonId, options)`
 
 `async getCharacterProfessionsSummary (realmSlug, characterName, options)`
 
@@ -649,13 +645,18 @@ console.log (region);
 
 `async getCharacterTitlesSummary (realmSlug, characterName, options)`
 
-`async getGuild (realmSlug, characterName, options)`
+#### World of Warcraft (Retail Profile) <a name="low-level-world-of-warcraft-retail-profile"></a>
+*client.wow.retail.api.account*
 
-`async getGuildActivity (realmSlug, characterName, options)`
+`async getProfileSummary (options)`
 
-`async getGuildAchievements (realmSlug, characterName, options)`
+`async getProtectedCharacterProfileSummary (realmId, characterId, options)`
 
-`async getGuildRoster (realmSlug, characterName, options)`
+`async getCollectionsIndex (options)`
+
+`async getMountsCollectionSummary (options)`
+
+`async getPetsCollectionSummary (options)`
 
 #### World of Warcraft (Classic) <a name="low-level-world-of-warcraft-classic"></a>
 *client.wow.classic.api*

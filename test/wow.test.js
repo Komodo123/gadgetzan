@@ -322,6 +322,22 @@ describe ('World of Warcraft', () => {
         expect (await client.wow.retail.api.getConduit (19)).toHaveProperty ('id');
       });
 
+      test ('client.wow.retail.api.getGuild', async () => {
+        expect (await client.wow.retail.api.getGuild ('illidan', 'complexity-limit')).toHaveProperty ('id');
+      });
+
+      test ('client.wow.retail.api.getGuildActivity', async () => {
+        expect (await client.wow.retail.api.getGuildActivity ('illidan', 'complexity-limit')).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getGuildAchievements', async () => {
+        expect (await client.wow.retail.api.getGuildAchievements ('illidan', 'complexity-limit')).toHaveProperty ('_links');
+      });
+
+      test ('client.wow.retail.api.getGuildRoster', async () => {
+        expect (await client.wow.retail.api.getGuildRoster ('illidan', 'complexity-limit')).toHaveProperty ('_links');
+      });
+
       test ('client.wow.retail.api.getItemSetsIndex', async () => {
         expect (await client.wow.retail.api.getItemSetsIndex (1)).toHaveProperty ('item_sets');
       });
@@ -645,10 +661,108 @@ describe ('World of Warcraft', () => {
       test ('client.wow.retail.api.getTitle', async () => {
         expect (await client.wow.retail.api.getTitle (1)).toHaveProperty ('id');
       });
-    });
 
-    describe ('Retail Profile', () => {
-      
+      describe ('Profile', () => {  
+        test ('client.wow.retail.api.getCharacterAchievementsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterAchievementsSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterAchievementStatistics', async () => {
+          expect (await client.wow.retail.api.getCharacterAchievementStatistics ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterAppearanceSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterAppearanceSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterCollectionsIndex', async () => {
+          expect (await client.wow.retail.api.getCharacterCollectionsIndex ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterMountsCollectionSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterMountsCollectionSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterPetsCollectionSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterPetsCollectionSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterEncountersSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterEncountersSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterDungeons', async () => {
+          expect (await client.wow.retail.api.getCharacterDungeons ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterRaids', async () => {
+          expect (await client.wow.retail.api.getCharacterRaids ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterEquipmentSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterEquipmentSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterHunterPetsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterHunterPetsSummary ('illidan', 'parsniproot')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterMediaSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterMediaSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterMythicKeystoneProfileIndex', async () => {
+          expect (await client.wow.retail.api.getCharacterMythicKeystoneProfileIndex ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterMythicKeystoneSeasonDetails', async () => {
+          expect (await client.wow.retail.api.getCharacterMythicKeystoneSeasonDetails ('illidan', 'cizzie', 1)).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterProfessionsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterProfessionsSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterProfileSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterProfileSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterProfileStatus', async () => {
+          expect (await client.wow.retail.api.getCharacterProfileStatus ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterPvPBracketStatistics', async () => {
+          expect (await client.wow.retail.api.getCharacterPvPBracketStatistics ('illidan', 'kaifariik', '3v3')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterPvPSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterPvPSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterQuests', async () => {
+          expect (await client.wow.retail.api.getCharacterCompletedQuests ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterReputationsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterReputationsSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterSoulbinds', async () => {
+          expect (await client.wow.retail.api.getCharacterSoulbinds ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterSpecializationsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterSpecializationsSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterStatisticsSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterStatisticsSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+
+        test ('client.wow.retail.api.getCharacterTitlesSummary', async () => {
+          expect (await client.wow.retail.api.getCharacterTitlesSummary ('illidan', 'dragonberry')).toHaveProperty ('_links');
+        });
+      });
     });
 
     describe ('Classic', () => {  

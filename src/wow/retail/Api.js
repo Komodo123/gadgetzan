@@ -1,13 +1,15 @@
 let Base = require ('../Api');
-let Profile = require ('./Profile');
+let Account = require ('./Account');
 
 class Api extends Base
 {
   constructor (client) {
     super (client);
 
-    this.profile = new Profile (client);
+    this.account = new Account (client);
   }
+
+  // Game Data APIs
 
   async getAchievementCategoriesIndex (options) {
     return this.get ({
@@ -195,6 +197,46 @@ class Api extends Base
       params: {
         namespace: this._getNamespace ('static'),
         ... options?.params
+      }
+    });
+  }
+
+  async getGuild (realmSlug, characterName, options) {
+    return this.get ({
+      path: `/data/wow/guild/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options
+      }
+    });
+  }
+
+  async getGuildActivity (realmSlug, characterName, options) {
+    return this.get ({
+      path: `/data/wow/guild/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/activity`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options
+      }
+    });
+  }
+
+  async getGuildAchievements (realmSlug, characterName, options) {
+    return this.get ({
+      path: `/data/wow/guild/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/achievements`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options
+      }
+    });
+  }
+
+  async getGuildRoster (realmSlug, characterName, options) {
+    return this.get ({
+      path: `/data/wow/guild/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/roster`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options
       }
     });
   }
@@ -1083,6 +1125,294 @@ class Api extends Base
       path: `/data/wow/title/${encodeURIComponent (titleId)}`,
       params: {
         namespace: this._getNamespace ('static'),
+        ... options?.params
+      }
+    });
+  }
+
+  // Profile APIs
+
+  async getCharacterAchievementsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/achievements`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterAchievementStatistics (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/achievements/statistics`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterAppearanceSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/appearance`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterCollectionsIndex (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/collections`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterMountsCollectionSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/collections/mounts`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterPetsCollectionSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/collections/pets`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterEncountersSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/encounters`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterDungeons (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/encounters/dungeons`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterRaids (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/encounters/raids`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterEquipmentSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/equipment`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterHunterPetsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/hunter-pets`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterMediaSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/character-media`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterMythicKeystoneProfileIndex (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/mythic-keystone-profile`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterMythicKeystoneSeasonDetails (realmSlug, characterName, seasonId, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/mythic-keystone-profile/season/${encodeURIComponent (seasonId)}`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterProfessionsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/professions`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterProfileSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterProfileStatus (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/status`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterPvPBracketStatistics (realmSlug, characterName, pvpBracket, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/pvp-bracket/${encodeURIComponent (pvpBracket)}`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterPvPSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/pvp-summary`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterQuests (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/quests`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterCompletedQuests (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/quests/completed`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterReputationsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/reputations`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterSoulbinds (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/soulbinds`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterSpecializationsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/specializations`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterStatisticsSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/statistics`,
+      params: {
+        namespace: this._getNamespace ('profile'),
+        ... options?.params
+      }
+    });
+  }
+
+  async getCharacterTitlesSummary (realmSlug, characterName, options) {
+    return this.get ({
+      ... options,
+      path: `/profile/wow/character/${encodeURIComponent (realmSlug)}/${encodeURIComponent (characterName)}/titles`,
+      params: {
+        namespace: this._getNamespace ('profile'),
         ... options?.params
       }
     });
